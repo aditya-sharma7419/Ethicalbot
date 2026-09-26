@@ -1,0 +1,26 @@
+# Build artifacts
+build/
+build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+Makefile
+*.o
+*.obj
+*.dll
+*.exe
+*.so
+*.dylib
+*.app
+
+# IDE/editor files
+.vscode/
+.idea/
+*.user
+*.autosave
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
