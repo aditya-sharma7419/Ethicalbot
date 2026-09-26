@@ -1,0 +1,176 @@
+/* ===================================================================
+   DEEP SEA BLUE & LIGHT BLUE ACCENT STYLESHEET
+   =================================================================== */
+
+QMainWindow {
+    background-color: #0A0E1A;
+    color: #F1F5F9;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* Left Navigation Sidebar */
+QFrame#sidebarFrame {
+    background-color: #121829;
+    border-right: 1px solid #1E2D4A;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+QLabel#brandLabel {
+    font-size: 18px;
+    font-weight: 900;
+    color: #00D2FF;
+    margin-bottom: 20px;
+}
+
+QPushButton#navButton {
+    background-color: transparent;
+    color: #94A3B8;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+QPushButton#navButton:hover {
+    background-color: #1E293B;
+    color: #00D2FF;
+}
+
+QPushButton#navButton:checked {
+    background-color: #1A243D;
+    color: #00D2FF;
+    border-left: 4px solid #00D2FF;
+}
+
+/* Central Content Cards */
+QFrame#cardPanel {
+    background-color: #141C2E;
+    border: 1px solid #1E2D4A;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* Status Banner Cards */
+QFrame#statusCardSafe {
+    background-color: #0F2738;
+    border: 2px solid #00D2FF;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+QFrame#statusCardWarning {
+    background-color: #0F2738;
+    border: 2px solid #38BDF8;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+QLabel#statusTitle {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+QLabel#statusSubtitle {
+    font-size: 13px;
+    color: #94A3B8;
+}
+
+/* Primary Action Button (Light Blue) */
+QPushButton#primaryActionButton {
+    background-color: #00D2FF;
+    color: #0A0E1A;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+QPushButton#primaryActionButton:hover {
+    background-color: #38BDF8;
+    color: #0A0E1A;
+}
+
+QPushButton#primaryActionButton:pressed {
+    background-color: #0284C7;
+    color: #FFFFFF;
+}
+
+/* Secondary Action Button (Cyan Outline) */
+QPushButton#secondaryActionButton {
+    background-color: transparent;
+    color: #00D2FF;
+    border: 1px solid #00D2FF;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+QPushButton#secondaryActionButton:hover {
+    background-color: rgba(0, 210, 255, 0.12);
+}
+
+/* Danger / Uninstall Button */
+QPushButton#dangerButton {
+    background-color: #881337;
+    color: #FECDD3;
+    border: 1px solid #F43F5E;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+QPushButton#dangerButton:hover {
+    background-color: #F43F5E;
+    color: #FFFFFF;
+}
+
+/* Dry-Run Review Tree */
+QTreeWidget {
+    background-color: #0E1424;
+    border: 1px solid #1E2D4A;
+    border-radius: 8px;
+    color: #F1F5F9;
+    padding: 6px;
+}
+
+QTreeWidget::item {
+    padding: 6px;
+    border-bottom: 1px solid #172033;
+}
+
+QTreeWidget::item:hover {
+    background-color: #1A243D;
+    color: #00D2FF;
+}
+
+QHeaderView::section {
+    background-color: #121829;
+    color: #00D2FF;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+/* Checkboxes */
+QCheckBox {
+    color: #CBD5E1;
+    font-size: 13px;
+    spacing: 8px;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid #00D2FF;
+    background-color: #0E1424;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #00D2FF;
+}
