@@ -6,25 +6,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 find_program(CARGO_EXECUTABLE cargo REQUIRED)
 
-set(RUST_CORE_LIB_PATH
-    "${CMAKE_SOURCE_DIR}/core_engine/target/release/${CMAKE_STATIC_LIBRARY_PREFIX}core_engine${CMAKE_STATIC_LIBRARY_SUFFIX}"
-)
+set(RUST_CORE_DIR "${CMAKE_SOURCE_DIR}/core_engine")
+
+if(WIN32)
+    set(RUST_CORE_LIB_PATH "${RUST_CORE_DIR}/target/release/core_engine.lib")
+else()
+    set(RUST_CORE_LIB_PATH "${RUST_CORE_DIR}/target/release/libcore_engine.a")
+endif()
 
 add_custom_command(
-    OUTPUT ${RUST_CORE_LIB_PATH}
-    COMMAND ${CARGO_EXECUTABLE} build --release
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/core_engine
+    OUTPUT "${RUST_CORE_LIB_PATH}"
+    COMMAND "${CARGO_EXECUTABLE}" build --release
+    WORKING_DIRECTORY "${RUST_CORE_DIR}"
     DEPENDS
-        ${CMAKE_SOURCE_DIR}/core_engine/Cargo.toml
-        ${CMAKE_SOURCE_DIR}/core_engine/src/lib.rs
+        "${RUST_CORE_DIR}/Cargo.toml"
+        "${RUST_CORE_DIR}/src/lib.rs"
     COMMENT "Building Rust core_engine"
     VERBATIM
 )
 
-add_custom_target(rust_core ALL DEPENDS ${RUST_CORE_LIB_PATH})
+add_custom_target(rust_core ALL DEPENDS "${RUST_CORE_LIB_PATH}")
 
 add_executable(SmartCleaner
     src/main.cpp
@@ -40,9 +44,9 @@ target_include_directories(SmartCleaner PRIVATE
 )
 
 target_link_libraries(SmartCleaner PRIVATE
-    Qt6::Widgets
     Qt6::Core
-    ${RUST_CORE_LIB_PATH}
+    Qt6::Widgets
+    "${RUST_CORE_LIB_PATH}"
 )
 
 if(WIN32)
@@ -51,6 +55,7 @@ endif()
 
 add_custom_command(TARGET SmartCleaner POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/assets
-    $<TARGET_FILE_DIR:SmartCleaner>/assets
+    "${CMAKE_SOURCE_DIR}/assets"
+    "$<TARGET_FILE_DIR:SmartCleaner>/assets"
+    VERBATIM
 )
