@@ -1,6 +1,6 @@
-# Ethicalbot
+# EthicalBot
 
-Ethicalbot is a desktop application for safe cleanup and system monitoring, built with Qt and a Rust-based core engine.
+EthicalBot is a desktop application for safe cleanup and system monitoring, built with Qt and a Rust-based core engine.
 
 ## Project structure
 
